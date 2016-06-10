@@ -1,0 +1,25 @@
+{
+  "name": "purescript-strongcheck-laws",
+  "homepage": "https://github.com/garyb/purescript-strongcheck-laws",
+  "description": "Law tests for core classes",
+  "keywords": [
+    "purescript"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/garyb/purescript-strongcheck-laws.git"
+  },
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "output",
+    "bower.json",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "purescript-strongcheck": "^1.1.0"
+  }
+}
