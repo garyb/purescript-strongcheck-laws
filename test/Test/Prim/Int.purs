@@ -11,9 +11,9 @@ checkInt ∷ ∀ eff. SC eff Unit
 checkInt = checkLaws "Int" do
   Data.checkEq prxInt
   Data.checkOrd prxInt
-  Data.checkCommutativeRing prxInt
-  Data.checkSemiring prxInt
-  Data.checkEuclideanRing prxInt
-  Data.checkRing prxInt
+  -- Data.checkCommutativeRing prxInt
+  -- Data.checkSemiring prxInt
+  -- Data.checkEuclideanRing prxInt
+  -- Data.checkRing prxInt
   where
   prxInt = Proxy ∷ Proxy Int
