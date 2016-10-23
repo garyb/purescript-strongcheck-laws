@@ -1,8 +1,8 @@
 # purescript-strongcheck-laws
 
-[![Latest release](http://img.shields.io/bower/v/purescript-strongcheck-laws.svg)](https://github.com/garyb/purescript-strongcheck-laws/releases)
-[![Build Status](https://travis-ci.org/garyb/purescript-strongcheck-laws.svg?branch=master)](https://travis-ci.org/garyb/purescript-strongcheck-laws)
-[![Dependency Status](https://www.versioneye.com/user/projects/575a23bb7757a0003bd4bfac/badge.svg?style=flat)](https://www.versioneye.com/user/projects/575a23bb7757a0003bd4bfac)
+[![Latest release](http://img.shields.io/github/release/garyb/purescript-strongcheck-laws.svg)](https://github.com/garyb/purescript-strongcheck-laws/releases)
+[![Build status](https://travis-ci.org/garyb/purescript-strongcheck-laws.svg?branch=master)](https://travis-ci.org/garyb/purescript-strongcheck-laws)
+[![Dependency status](https://img.shields.io/librariesio/github/garyb/purescript-strongcheck-laws.svg)](https://libraries.io/github/garyb/purescript-strongcheck-laws)
 
 StrongCheck powered law tests for PureScript's core typeclasses.
 
