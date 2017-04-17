@@ -14,7 +14,7 @@ import Test.StrongCheck.Laws (A, B)
 -- | - Composition: `(<$>) (f <<< g) = (f <$>) <<< (g <$>)`
 checkFunctor
   ∷ ∀ eff f
-  . (Functor f, Arbitrary (f A), Eq (f A))
+  . Functor f ⇒ Arbitrary (f A) ⇒ Eq (f A)
   ⇒ Proxy2 f
   → SC eff Unit
 checkFunctor _ = do

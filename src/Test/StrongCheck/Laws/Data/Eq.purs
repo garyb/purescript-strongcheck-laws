@@ -15,7 +15,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Negation: `x /= y = not (x == y)`
 checkEq
   ∷ ∀ eff a
-  . (Arbitrary a, Eq a)
+  . Arbitrary a ⇒ Eq a
   ⇒ Proxy a
   → SC eff Unit
 checkEq _ = do

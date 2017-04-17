@@ -14,7 +14,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Transitivity: if `a <= b` and `b <= c` then `a <= c`
 checkOrd
   ∷ ∀ eff a
-  . (Arbitrary a, Ord a)
+  . Arbitrary a ⇒ Ord a
   ⇒ Proxy a
   → SC eff Unit
 checkOrd _ = do
