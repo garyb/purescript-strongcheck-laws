@@ -22,7 +22,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Annihiliation: `zero * a = a * zero = zero`
 checkSemiring
   ∷ ∀ eff a
-  . (Semiring a, Arbitrary a, Eq a)
+  . Semiring a ⇒ Arbitrary a ⇒ Eq a
   ⇒ Proxy a
   → SC eff Unit
 checkSemiring _ = do

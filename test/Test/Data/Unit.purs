@@ -15,9 +15,7 @@ checkUnit = checkLaws "Unit" do
   Data.checkSemigroup prxUnit
   Data.checkMonoid prxUnit
   Data.checkSemiring prxUnit
-  Data.checkEuclideanRing prxUnit
   Data.checkRing prxUnit
-  Data.checkField prxUnit
   Data.checkCommutativeRing prxUnit
   Data.checkHeytingAlgebra prxUnit
   Data.checkBooleanAlgebra prxUnit

@@ -12,7 +12,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Ordering: `bottom <= a <= top`
 checkBounded
   ∷ ∀ eff a
-  . (Arbitrary a, Bounded a, Ord a)
+  . Arbitrary a ⇒ Bounded a ⇒ Ord a
   ⇒ Proxy a
   → SC eff Unit
 checkBounded _ = do

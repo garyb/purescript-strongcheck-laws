@@ -12,7 +12,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Associativity: `(x <> y) <> z = x <> (y <> z)`
 checkSemigroup
   ∷ ∀ eff s
-  . (Semigroup s, Arbitrary s, Eq s)
+  . Semigroup s ⇒ Arbitrary s ⇒ Eq s
   ⇒ Proxy s
   → SC eff Unit
 checkSemigroup _ = do

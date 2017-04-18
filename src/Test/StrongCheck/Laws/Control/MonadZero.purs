@@ -15,7 +15,7 @@ import Test.StrongCheck.Laws (A, B)
 -- | - Annihilation: `empty >>= f = empty`
 checkMonadZero
   ∷ ∀ eff m
-  . (MonadZero m, Arbitrary (m A), Arbitrary (m B), Eq (m B))
+  . MonadZero m ⇒ Arbitrary (m A) ⇒ Arbitrary (m B) ⇒ Eq (m B)
   ⇒ Proxy2 m
   → SC eff Unit
 checkMonadZero _ = do

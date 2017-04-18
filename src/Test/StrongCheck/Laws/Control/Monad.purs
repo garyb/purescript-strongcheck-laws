@@ -14,7 +14,7 @@ import Test.StrongCheck.Laws (A)
 -- | - Right Identity: `x >>= pure = x`
 checkMonad
   ∷ ∀ eff m
-  . (Monad m, Arbitrary (m A), Eq (m A))
+  . Monad m ⇒ Arbitrary (m A) ⇒ Eq (m A)
   ⇒ Proxy2 m
   → SC eff Unit
 checkMonad _ = do

@@ -14,7 +14,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Excluded middle: `a || not a = tt`
 checkBooleanAlgebra
   ∷ ∀ eff a
-  . (Arbitrary a, BooleanAlgebra a, Eq a)
+  . Arbitrary a ⇒ BooleanAlgebra a ⇒ Eq a
   ⇒ Proxy a
   → SC eff Unit
 checkBooleanAlgebra _ = do

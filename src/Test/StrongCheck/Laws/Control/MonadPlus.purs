@@ -15,7 +15,7 @@ import Test.StrongCheck.Laws (A, B)
 -- | - Distributivity: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
 checkMonadPlus
   ∷ ∀ eff m
-  . (MonadPlus m, Arbitrary (m A), Arbitrary (m B), Eq (m B))
+  . MonadPlus m ⇒ Arbitrary (m A) ⇒ Arbitrary (m B) ⇒ Eq (m B)
   ⇒ Proxy2 m
   → SC eff Unit
 checkMonadPlus _ = do

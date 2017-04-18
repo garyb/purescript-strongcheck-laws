@@ -15,7 +15,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Right identity: `x <> mempty = x`
 checkMonoid
   ∷ ∀ eff m
-  . (Monoid m, Arbitrary m, Eq m)
+  . Monoid m ⇒ Arbitrary m ⇒ Eq m
   ⇒ Proxy m
   → SC eff Unit
 checkMonoid _ = do

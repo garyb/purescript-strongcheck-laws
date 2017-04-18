@@ -12,7 +12,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Commutative multiplication: `a * b = b * a`
 checkCommutativeRing
   ∷ ∀ eff a
-  . (CommutativeRing a, Arbitrary a, Eq a)
+  . CommutativeRing a ⇒ Arbitrary a ⇒ Eq a
   ⇒ Proxy a
   → SC eff Unit
 checkCommutativeRing _ = do

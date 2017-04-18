@@ -15,7 +15,7 @@ import Test.StrongCheck.Laws (A, B)
 -- | - Distributivity: `f <$> (x <|> y) == (f <$> x) <|> (f <$> y)`
 checkAlt
   ∷ ∀ eff f
-  . (Alt f, Arbitrary (f A), Eq (f A), Eq (f B))
+  . Alt f ⇒ Arbitrary (f A) ⇒ Eq (f A) ⇒ Eq (f B)
   ⇒ Proxy2 f
   → SC eff Unit
 checkAlt _ = do

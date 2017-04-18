@@ -12,7 +12,7 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Additive inverse: `a - a = a + (-a) = (-a) + a = zero`
 checkRing
   ∷ ∀ eff a
-  . (Ring a, Arbitrary a, Eq a)
+  . Ring a ⇒ Arbitrary a ⇒ Eq a
   ⇒ Proxy a
   → SC eff Unit
 checkRing _ = do
