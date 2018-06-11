@@ -1,18 +1,15 @@
 module Test.StrongCheck.Laws
   ( module Test.StrongCheck.Laws
-  , module Test.StrongCheck
   ) where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
+import Effect.Console (log)
 
-import Data.Monoid (class Monoid)
-
-import Test.StrongCheck (SC)
+import Effect (Effect)
 import Test.StrongCheck.Arbitrary (class Arbitrary, arbitrary, class Coarbitrary, coarbitrary)
 
-checkLaws ∷ ∀ eff. String → SC eff Unit → SC eff Unit
+checkLaws ∷ String → Effect Unit → Effect Unit
 checkLaws typeName laws = do
   log $ "\n\nChecking laws of " <> typeName <> " instances...\n"
   laws

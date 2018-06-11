@@ -2,20 +2,23 @@ module Test.StrongCheck.Laws.Control.Apply where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy2)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
 import Test.StrongCheck.Laws (A, B, C)
+import Type.Proxy (Proxy2)
 
 -- | - Associative composition: `(<<<) <$> f <*> g <*> h = f <*> (g <*> h)`
 checkApply
-  ∷ ∀ eff f
-  . Apply f ⇒ Arbitrary (f A) ⇒ Arbitrary (f (A → B)) ⇒ Arbitrary (f (B → C)) ⇒ Eq (f C)
+  ∷ ∀ f
+  . Apply f
+  ⇒ Arbitrary (f A)
+  ⇒ Arbitrary (f (A → B))
+  ⇒ Arbitrary (f (B → C))
+  ⇒ Eq (f C)
   ⇒ Proxy2 f
-  → SC eff Unit
+  → Effect Unit
 checkApply _ = do
 
   log "Checking 'Associative composition' law for Apply"

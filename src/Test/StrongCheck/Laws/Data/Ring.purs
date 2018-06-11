@@ -2,19 +2,20 @@ module Test.StrongCheck.Laws.Data.Ring where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
+import Type.Proxy (Proxy)
 
 -- | - Additive inverse: `a - a = a + (-a) = (-a) + a = zero`
 checkRing
-  ∷ ∀ eff a
-  . Ring a ⇒ Arbitrary a ⇒ Eq a
+  ∷ ∀ a
+  . Ring a
+  ⇒ Arbitrary a
+  ⇒ Eq a
   ⇒ Proxy a
-  → SC eff Unit
+  → Effect Unit
 checkRing _ = do
 
   log "Checking 'Additive inverse' law for Ring"

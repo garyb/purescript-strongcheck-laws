@@ -2,22 +2,22 @@ module Test.StrongCheck.Laws.Data.Eq where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
+import Type.Proxy (Proxy)
 
 -- | - Reflexivity: `x == x = true`
 -- | - Symmetry: `x == y = y == x`
 -- | - Transitivity: if `x == y` and `y == z` then `x == z`
 -- | - Negation: `x /= y = not (x == y)`
 checkEq
-  ∷ ∀ eff a
-  . Arbitrary a ⇒ Eq a
+  ∷ ∀ a
+  . Arbitrary a
+  ⇒ Eq a
   ⇒ Proxy a
-  → SC eff Unit
+  → Effect Unit
 checkEq _ = do
 
   log "Checking 'Reflexivity' law for Eq"

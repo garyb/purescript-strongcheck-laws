@@ -2,19 +2,18 @@ module Test.StrongCheck.Laws.Data.CommutativeRing where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
+import Type.Proxy (Proxy)
 
 -- | - Commutative multiplication: `a * b = b * a`
 checkCommutativeRing
-  ∷ ∀ eff a
+  ∷ ∀ a
   . CommutativeRing a ⇒ Arbitrary a ⇒ Eq a
   ⇒ Proxy a
-  → SC eff Unit
+  → Effect Unit
 checkCommutativeRing _ = do
 
   log "Checking 'Commutative multiplication' law for CommutativeRing"

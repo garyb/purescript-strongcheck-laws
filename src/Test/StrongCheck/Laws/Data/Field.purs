@@ -2,19 +2,20 @@ module Test.StrongCheck.Laws.Data.Field where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
+import Type.Proxy (Proxy)
 
 -- | - Non-zero multiplicative inverse: ``a `mod` b = 0` for all `a` and `b`
 checkField
-  ∷ ∀ eff a
-  . Field a ⇒ Arbitrary a ⇒ Eq a
+  ∷ ∀ a
+  . Field a
+  ⇒ Arbitrary a
+  ⇒ Eq a
   ⇒ Proxy a
-  → SC eff Unit
+  → Effect Unit
 checkField _ = do
 
   log "Checking 'Non-zero multiplicative inverse' law for Field"

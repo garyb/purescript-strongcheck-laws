@@ -3,14 +3,13 @@ module Test.Data.Identity where
 import Prelude
 
 import Data.Identity (Identity)
-
-import Test.StrongCheck.Laws (SC, A, checkLaws)
+import Effect (Effect)
+import Test.StrongCheck.Laws (A, checkLaws)
 import Test.StrongCheck.Laws.Control as Control
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..), Proxy2(..))
 
-checkIdentity ∷ ∀ eff. SC eff Unit
+checkIdentity ∷ Effect Unit
 checkIdentity = checkLaws "Identity" do
   Data.checkEq prxIdentity
   Data.checkOrd prxIdentity

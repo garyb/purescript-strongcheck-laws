@@ -2,12 +2,12 @@ module Test.Prim.Boolean where
 
 import Prelude
 
-import Test.StrongCheck.Laws (SC, checkLaws)
+import Effect (Effect)
+import Test.StrongCheck.Laws (checkLaws)
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..))
 
-checkBoolean ∷ ∀ eff. SC eff Unit
+checkBoolean ∷ Effect Unit
 checkBoolean = checkLaws "Boolean" do
   Data.checkEq prxBoolean
   Data.checkOrd prxBoolean

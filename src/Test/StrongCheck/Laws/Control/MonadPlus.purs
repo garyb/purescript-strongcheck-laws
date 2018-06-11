@@ -3,21 +3,23 @@ module Test.StrongCheck.Laws.Control.MonadPlus where
 import Prelude
 
 import Control.Alt ((<|>))
-import Control.Monad.Eff.Console (log)
 import Control.MonadPlus (class MonadPlus)
-
-import Type.Proxy (Proxy2)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
 import Test.StrongCheck.Laws (A, B)
+import Type.Proxy (Proxy2)
 
 -- | - Distributivity: `(x <|> y) >>= f == (x >>= f) <|> (y >>= f)`
 checkMonadPlus
-  ∷ ∀ eff m
-  . MonadPlus m ⇒ Arbitrary (m A) ⇒ Arbitrary (m B) ⇒ Eq (m B)
+  ∷ ∀ m
+  . MonadPlus m
+  ⇒ Arbitrary (m A)
+  ⇒ Arbitrary (m B)
+  ⇒ Eq (m B)
   ⇒ Proxy2 m
-  → SC eff Unit
+  → Effect Unit
 checkMonadPlus _ = do
 
   log "Checking 'Distributivity' law for MonadPlus"

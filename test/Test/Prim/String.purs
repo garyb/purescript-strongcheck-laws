@@ -2,12 +2,12 @@ module Test.Prim.String where
 
 import Prelude
 
-import Test.StrongCheck.Laws (SC, checkLaws)
+import Effect (Effect)
+import Test.StrongCheck.Laws (checkLaws)
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..))
 
-checkString ∷ ∀ eff. SC eff Unit
+checkString ∷ Effect Unit
 checkString = checkLaws "String" do
   Data.checkEq prxString
   Data.checkOrd prxString

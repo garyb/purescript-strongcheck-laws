@@ -2,12 +2,11 @@ module Test.StrongCheck.Laws.Data.Semiring where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
+import Type.Proxy (Proxy)
 
 -- | - Commutative monoid under addition:
 -- |   - Associativity: `(a + b) + c = a + (b + c)`
@@ -21,10 +20,12 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- |   - Right distributivity: `(a + b) * c = (a * c) + (b * c)`
 -- | - Annihiliation: `zero * a = a * zero = zero`
 checkSemiring
-  ∷ ∀ eff a
-  . Semiring a ⇒ Arbitrary a ⇒ Eq a
+  ∷ ∀ a
+  . Semiring a
+  ⇒ Arbitrary a
+  ⇒ Eq a
   ⇒ Proxy a
-  → SC eff Unit
+  → Effect Unit
 checkSemiring _ = do
 
   log "Checking 'Associativity' law for Semiring addition"
