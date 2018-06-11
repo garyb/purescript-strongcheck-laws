@@ -2,19 +2,20 @@ module Test.StrongCheck.Laws.Data.Semigroup where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
+import Type.Proxy (Proxy)
 
 -- | - Associativity: `(x <> y) <> z = x <> (y <> z)`
 checkSemigroup
-  ∷ ∀ eff s
-  . Semigroup s ⇒ Arbitrary s ⇒ Eq s
+  ∷ ∀ s
+  . Semigroup s
+  ⇒ Arbitrary s
+  ⇒ Eq s
   ⇒ Proxy s
-  → SC eff Unit
+  → Effect Unit
 checkSemigroup _ = do
 
   log "Checking 'Associativity' law for Semigroup"

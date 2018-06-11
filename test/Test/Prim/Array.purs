@@ -2,13 +2,13 @@ module Test.Prim.Array where
 
 import Prelude
 
-import Test.StrongCheck.Laws (SC, A, checkLaws)
+import Effect (Effect)
+import Test.StrongCheck.Laws (A, checkLaws)
 import Test.StrongCheck.Laws.Control as Control
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..), Proxy2(..))
 
-checkArray ∷ ∀ eff. SC eff Unit
+checkArray ∷ Effect Unit
 checkArray = checkLaws "Array" do
   Data.checkEq prxArray
   Data.checkOrd prxArray

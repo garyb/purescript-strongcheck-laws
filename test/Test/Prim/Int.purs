@@ -2,14 +2,14 @@ module Test.Prim.Int where
 
 import Prelude
 
+import Effect (Effect)
 import Test.StrongCheck.Arbitrary (class Arbitrary, class Coarbitrary)
 import Test.StrongCheck.Gen (chooseInt)
-import Test.StrongCheck.Laws (SC, checkLaws)
+import Test.StrongCheck.Laws (checkLaws)
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..))
 
-checkInt ∷ ∀ eff. SC eff Unit
+checkInt ∷ Effect Unit
 checkInt = checkLaws "Int" do
   Data.checkEq prxInt
   Data.checkOrd prxInt

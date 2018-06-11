@@ -2,12 +2,12 @@ module Test.Data.Unit where
 
 import Prelude
 
-import Test.StrongCheck.Laws (SC, checkLaws)
+import Effect (Effect)
+import Test.StrongCheck.Laws (checkLaws)
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..))
 
-checkUnit ∷ ∀ eff. SC eff Unit
+checkUnit ∷ Effect Unit
 checkUnit = checkLaws "Unit" do
   Data.checkEq prxUnit
   Data.checkOrd prxUnit

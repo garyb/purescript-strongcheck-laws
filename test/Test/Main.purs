@@ -2,7 +2,7 @@ module Test.Main where
 
 import Prelude
 
-import Test.StrongCheck (SC)
+import Effect (Effect)
 import Test.Data.Either (checkEither)
 import Test.Data.Identity (checkIdentity)
 import Test.Data.List (checkList)
@@ -16,7 +16,7 @@ import Test.Prim.Int (checkInt)
 import Test.Prim.Number (checkNumber)
 import Test.Prim.String (checkString)
 
-main ∷ SC () Unit
+main ∷ Effect Unit
 main = do
   checkArray
   checkBoolean

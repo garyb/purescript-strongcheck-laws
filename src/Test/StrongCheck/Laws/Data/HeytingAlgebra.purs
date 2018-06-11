@@ -2,14 +2,12 @@ module Test.StrongCheck.Laws.Data.HeytingAlgebra where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
 import Data.HeytingAlgebra (tt, ff, implies)
-
-import Type.Proxy (Proxy)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
+import Type.Proxy (Proxy)
 
 -- | - Associativity:
 -- |   - `a || (b || c) = (a || b) || c`
@@ -34,10 +32,12 @@ import Test.StrongCheck.Arbitrary (class Arbitrary)
 -- | - Complemented:
 -- |   - ``not a = a `implies` ff``
 checkHeytingAlgebra
-  ∷ ∀ eff a
-  . Arbitrary a ⇒ HeytingAlgebra a ⇒ Eq a
+  ∷ ∀ a
+  . Arbitrary a
+  ⇒ HeytingAlgebra a
+  ⇒ Eq a
   ⇒ Proxy a
-  → SC eff Unit
+  → Effect Unit
 checkHeytingAlgebra _ = do
 
   log "Checking 'Associativity of disjunction' law for HeytingAlgebra"

@@ -3,14 +3,13 @@ module Test.Data.List where
 import Prelude
 
 import Data.List (List)
-
-import Test.StrongCheck.Laws (SC, A, checkLaws)
+import Effect (Effect)
+import Test.StrongCheck.Laws (A, checkLaws)
 import Test.StrongCheck.Laws.Control as Control
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..), Proxy2(..))
 
-checkList ∷ ∀ eff. SC eff Unit
+checkList ∷ Effect Unit
 checkList = checkLaws "List" do
   Data.checkEq prxList
   Data.checkOrd prxList

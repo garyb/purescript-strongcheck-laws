@@ -3,14 +3,13 @@ module Test.Data.Maybe where
 import Prelude
 
 import Data.Maybe (Maybe)
-
-import Test.StrongCheck.Laws (SC, A, checkLaws)
+import Effect (Effect)
+import Test.StrongCheck.Laws (A, checkLaws)
 import Test.StrongCheck.Laws.Control as Control
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..), Proxy2(..))
 
-checkMaybe ∷ ∀ eff. SC eff Unit
+checkMaybe ∷ Effect Unit
 checkMaybe = checkLaws "Maybe" do
   Data.checkEq prxMaybe
   Data.checkOrd prxMaybe

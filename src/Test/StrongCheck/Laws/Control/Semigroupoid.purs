@@ -2,20 +2,23 @@ module Test.StrongCheck.Laws.Control.Semigroupoid where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy3)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
 import Test.StrongCheck.Laws (B, C, D, E)
+import Type.Proxy (Proxy3)
 
 -- | - Associativity: `p <<< (q <<< r) = (p <<< q) <<< r`
 checkSemigroupoid
-  ∷ ∀ eff a
-  . Semigroupoid a ⇒ Arbitrary (a B C) ⇒ Arbitrary (a C D) ⇒ Arbitrary (a D E) ⇒ Eq (a B E)
+  ∷ ∀ a
+  . Semigroupoid a
+  ⇒ Arbitrary (a B C)
+  ⇒ Arbitrary (a C D)
+  ⇒ Arbitrary (a D E)
+  ⇒ Eq (a B E)
   ⇒ Proxy3 a
-  → SC eff Unit
+  → Effect Unit
 checkSemigroupoid _ = do
 
   log "Checking 'Associativity' law for Semigroupoid"

@@ -3,14 +3,13 @@ module Test.Data.Either where
 import Prelude
 
 import Data.Either (Either)
-
-import Test.StrongCheck.Laws (SC, A, B, C, checkLaws)
+import Effect (Effect)
+import Test.StrongCheck.Laws (A, B, C, checkLaws)
 import Test.StrongCheck.Laws.Control as Control
 import Test.StrongCheck.Laws.Data as Data
-
 import Type.Proxy (Proxy(..), Proxy2(..))
 
-checkEither ∷ ∀ eff. SC eff Unit
+checkEither ∷ Effect Unit
 checkEither = checkLaws "Either" do
   Data.checkEq prxEither
   Data.checkOrd prxEither

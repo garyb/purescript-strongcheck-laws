@@ -3,21 +3,21 @@ module Test.StrongCheck.Laws.Control.Alt where
 import Prelude
 
 import Control.Alt (class Alt, (<|>))
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy2)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
 import Test.StrongCheck.Laws (A, B)
+import Type.Proxy (Proxy2)
 
 -- | - Associativity: `(x <|> y) <|> z == x <|> (y <|> z)`
 -- | - Distributivity: `f <$> (x <|> y) == (f <$> x) <|> (f <$> y)`
 checkAlt
-  ∷ ∀ eff f
-  . Alt f ⇒ Arbitrary (f A) ⇒ Eq (f A) ⇒ Eq (f B)
+  ∷ ∀ f
+  . Alt f
+  ⇒ Arbitrary (f A) ⇒ Eq (f A) ⇒ Eq (f B)
   ⇒ Proxy2 f
-  → SC eff Unit
+  → Effect Unit
 checkAlt _ = do
 
   log "Checking 'Associativity' law for Alt"

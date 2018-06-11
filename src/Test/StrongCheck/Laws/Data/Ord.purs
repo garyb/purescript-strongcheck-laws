@@ -2,21 +2,21 @@ module Test.StrongCheck.Laws.Data.Ord where
 
 import Prelude
 
-import Control.Monad.Eff.Console (log)
-
-import Type.Proxy (Proxy)
-
-import Test.StrongCheck (SC, quickCheck')
+import Effect (Effect)
+import Effect.Console (log)
+import Test.StrongCheck (quickCheck')
 import Test.StrongCheck.Arbitrary (class Arbitrary)
+import Type.Proxy (Proxy)
 
 -- | - Reflexivity: `a <= a`
 -- | - Antisymmetry: if `a <= b` and `b <= a` then `a = b`
 -- | - Transitivity: if `a <= b` and `b <= c` then `a <= c`
 checkOrd
-  ∷ ∀ eff a
-  . Arbitrary a ⇒ Ord a
+  ∷ ∀ a
+  . Arbitrary a
+  ⇒ Ord a
   ⇒ Proxy a
-  → SC eff Unit
+  → Effect Unit
 checkOrd _ = do
 
   log "Checking 'Reflexivity' law for Ord"
