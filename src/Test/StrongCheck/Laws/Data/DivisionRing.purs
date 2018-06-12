@@ -31,7 +31,8 @@ checkDivisionRing _ = do
   nonZero = (one :: Eq a => a) /= zero
 
   inverse ∷ DivisionRing a => a → Boolean
-  inverse a =
-    recip a * a == a * recip a
-    && recip a * a == one
-    && a * recip a == one
+  inverse a
+    | a == zero = true
+    | (recip a * a == a * recip a) && (recip a * a == one) && (a * recip a == one) = true
+    | otherwise = false
+
