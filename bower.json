@@ -20,7 +20,7 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-strongcheck": "^4.0.0",
+    "purescript-strongcheck": "^4.1.0",
     "purescript-proxy": "^3.0.0"
   }
 }

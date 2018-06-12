@@ -3,6 +3,7 @@ module Test.StrongCheck.Laws.Data (module Exports) where
 import Test.StrongCheck.Laws.Data.BooleanAlgebra (checkBooleanAlgebra) as Exports
 import Test.StrongCheck.Laws.Data.Bounded (checkBounded) as Exports
 import Test.StrongCheck.Laws.Data.CommutativeRing (checkCommutativeRing) as Exports
+import Test.StrongCheck.Laws.Data.DivisionRing (checkDivisionRing) as Exports
 import Test.StrongCheck.Laws.Data.Eq (checkEq) as Exports
 import Test.StrongCheck.Laws.Data.EuclideanRing (checkEuclideanRing) as Exports
 import Test.StrongCheck.Laws.Data.Field (checkField) as Exports
