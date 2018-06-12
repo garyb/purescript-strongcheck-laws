@@ -14,6 +14,7 @@ checkNumber = checkLaws "Number" do
   Data.checkOrd prxNumber
   Data.checkSemiring prxNumber
   Data.checkEuclideanRing prxNumber
+  Data.checkDivisionRing prxNumber
   Data.checkRing prxNumber
   Data.checkCommutativeRing prxNumber
   where
