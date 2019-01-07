@@ -6,7 +6,7 @@ import Prelude
 import Data.Enum (class Enum, class BoundedEnum)
 import Effect.Console (log)
 import Effect (Effect)
-import Test.StrongCheck.Arbitrary (class Arbitrary, arbitrary, class Coarbitrary, coarbitrary)
+import Test.StrongCheck.Arbitrary (class Arbitrary, class Coarbitrary)
 
 checkLaws ∷ String → Effect Unit → Effect Unit
 checkLaws typeName laws = do
