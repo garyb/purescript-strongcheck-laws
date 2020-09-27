@@ -3,12 +3,13 @@
   "homepage": "https://github.com/garyb/purescript-strongcheck-laws",
   "description": "Law tests for core classes",
   "keywords": [
-    "purescript"
+    "purescript",
+    "pursuit-deprecated"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/garyb/purescript-strongcheck-laws.git"
+    "url": "https://github.com/garyb/purescript-strongcheck-laws.git"
   },
   "ignore": [
     "**/.*",
