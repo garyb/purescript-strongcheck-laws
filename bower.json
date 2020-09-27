@@ -3,7 +3,8 @@
   "homepage": "https://github.com/garyb/purescript-strongcheck-laws",
   "description": "Law tests for core classes",
   "keywords": [
-    "purescript"
+    "purescript",
+    "purescript-deprecated"
   ],
   "license": "MIT",
   "repository": {
