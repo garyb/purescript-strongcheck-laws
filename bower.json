@@ -4,7 +4,7 @@
   "description": "Law tests for core classes",
   "keywords": [
     "purescript",
-    "purescript-deprecated"
+    "pursuit-deprecated"
   ],
   "license": "MIT",
   "repository": {
